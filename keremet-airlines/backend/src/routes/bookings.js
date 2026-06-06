@@ -22,6 +22,7 @@ router.get('/', authMiddleware, async (req, res) => {
       params = [];
     } else {
       query = `SELECT b.*, f.flight_number, f.flight_date, f.departure_time, f.arrival_time,
+                      f.aircraft, f.from_code, f.to_code,
                       af.city AS from_city, at2.city AS to_city
                FROM bookings b
                LEFT JOIN flights f    ON b.flight_id  = f.id

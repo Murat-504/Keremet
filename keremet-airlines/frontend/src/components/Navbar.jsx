@@ -66,6 +66,7 @@ export default function Navbar() {
         <div style={{ display:'flex', gap:4 }}>
           {navBtn('/', 'Главная')}
           {navBtn('/flights', 'Рейсы')}
+          {user && !isAdmin && navBtn('/profile', 'Мои билеты')}
           {isAdmin && navBtn('/admin', 'Панель управления')}
         </div>
 

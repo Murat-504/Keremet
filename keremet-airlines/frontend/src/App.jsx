@@ -7,7 +7,8 @@ import HomePage  from './pages/HomePage';
 import SearchPage from './pages/SearchPage';
 import BookingPage from './pages/BookingPage';
 import DonePage  from './pages/DonePage';
-import AdminPage from './pages/AdminPage';
+import AdminPage   from './pages/AdminPage';
+import ProfilePage from './pages/ProfilePage';
 
 function PrivateRoute({ children, adminOnly = false }) {
   const { user, initialized } = useSelector(s => s.auth);
@@ -36,6 +37,9 @@ export default function App() {
         } />
         <Route path="/done"     element={
           <PrivateRoute><DonePage /></PrivateRoute>
+        } />
+        <Route path="/profile"  element={
+          <PrivateRoute><ProfilePage /></PrivateRoute>
         } />
         <Route path="/admin/*"  element={
           <PrivateRoute adminOnly><AdminPage /></PrivateRoute>
